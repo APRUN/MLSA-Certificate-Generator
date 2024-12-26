@@ -3,6 +3,7 @@
 # pip3 install -r requirements.txt
 
 python-docx
+pywin32
 docx2pdf
 openpyxl
 uvicorn
