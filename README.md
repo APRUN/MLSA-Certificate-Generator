@@ -1,85 +1,84 @@
-# MLSA Certificate Automation 🚀  
+# MLSA Certificate Generator and Mailer
 
-This project automates the process of generating and sending certificates for events conducted under the Microsoft Learn Student Ambassadors (MLSA) program. With this tool, you can create personalized certificates in both `.docx` and `.pdf` formats and send them directly via email through Outlook.  
+Automate the generation and distribution of Microsoft Learn Student Ambassador (MLSA) certificates using Python and Microsoft Office automation.
 
----
+## Features
 
-## Features  
-- **Certificate Automation**: Quickly generate certificates for all participants.  
-- **PDF & DOCX Output**: Organizes output files into `.docx` and `.pdf` folders.  
-- **Email Automation**: Send certificates directly via email using Excel macros.  
+- Automated certificate generation in both DOCX and PDF formats
+- Bulk email distribution through Outlook
+- Support for custom certificate templates
+- Automated participant data processing
 
----
+## Prerequisites
 
-## Project Structure  
+- Python 3.x
+- Microsoft Office (Outlook and Word)
+- Git
 
-📂 Data/
-├── Event Certificate Template.docx # Certificate design template
-├── Mail.xlsm # Excel file with email macros
-├── ParticipantList.csv # Participant names and emails
-├── mailtemplate.html # HTML email template
-├── temp.csv # Temporary file for data handling
-📄 .gitignore # Ignored files for Git
-📄 README.md # Project documentation
-📄 certificate.py # Certificate generation script
-📄 main_certificate.py # Main script for execution
-📄 requirements.txt # Python dependencies
+## Installation
 
-yaml
-Copy code
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/mlsa-certificate-automation.git
+cd mlsa-certificate-automation
+```
 
----
-
-## Prerequisites  
-
-1. **Python**: Install Python 3.6 or above.  
-2. **Microsoft Office**: Ensure you have Excel and Outlook configured.  
-3. **Macro Settings**: Enable macros in Excel (instructions provided below).  
-
----
-
-## Installation  
-
-1. Clone the repository:  
-   ```bash
-   git clone <repository-url>
-   cd <repository-folder>
-Install the required Python packages:
-bash
-Copy code
+2. Install required dependencies:
+```bash
 pip3 install -r requirements.txt
-How to Use
-Step 1: Add Participant Details
-Open the ParticipantList.csv file located in the Data/ folder.
-Add participant names and email addresses in the provided columns.
-Step 2: Generate Certificates
-Navigate to the root directory of the project.
-Run the main_certificate.py script:
-bash
-Copy code
+```
+
+## Project Structure
+
+```
+.
+├── Data/
+│   ├── Event Certificate Template.docx
+│   ├── Mail.xlsm
+│   ├── ParticipantList.csv
+│   ├── mailtemplate.html
+│   └── temp.csv
+├── Output/
+│   ├── doc/
+│   └── pdf/
+├── certificate.py
+├── main_certificate.py
+├── requirements.txt
+└── README.md
+```
+
+## Usage
+
+### 1. Preparing Participant Data
+
+1. Navigate to the `Data` folder
+2. Open `ParticipantList.csv`
+3. Add participant names and email addresses in the required format
+
+### 2. Generating Certificates
+
+1. Run the main certificate generator:
+```bash
 python main_certificate.py
-This will:
-Create an Output/ folder in the main directory.
-Inside Output/, you will find:
-doc/ folder containing .docx certificates.
-pdf/ folder containing .pdf certificates.
-Step 3: Send Emails
-Open the Mail.xlsm file from the Data/ folder.
-Enable Macros:
-If macros are disabled, a bar will appear at the top of the Excel sheet prompting you to enable them.
-If no prompt appears, go to Excel settings and manually enable macros.
-Search for "Macros" using the search bar in Excel (top center).
-Run the send_mail macro:
-Open the "Macros" window.
-Select send_mail and click "Run."
-Emails with attached certificates will now be sent automatically through Outlook.
-Requirements
-Below are the Python dependencies used in this project. Install them using the command:
+```
+2. Check the `Output` folder for generated certificates:
+   - `doc/`: Contains DOCX format certificates
+   - `pdf/`: Contains PDF format certificates
 
-bash
-Copy code
-pip3 install -r requirements.txt
-Dependencies:
+### 3. Sending Certificates via Email
+
+1. Open `Mail.xlsm` in the Data folder
+2. Enable macros when prompted:
+   - Click "Enable Content" if shown
+   - Or enable via File > Options > Trust Center > Trust Center Settings > Macro Settings
+3. Access macros:
+   - Press Alt + F8
+   - Or search for "Macros" in Excel's search bar
+4. Run the `send_mail` macro to begin email distribution through Outlook
+
+## Dependencies
+
+```
 python-docx
 docx2pdf
 openpyxl
@@ -89,37 +88,22 @@ fastapi
 aiosmtplib
 python-dotenv
 python-multipart
-Enabling Macros
-To enable macros in Excel:
+```
 
-Go to File > Options.
-Select Trust Center > Trust Center Settings.
-Go to Macro Settings and choose Enable all macros.
-Notes
-Ensure Outlook is configured with an active account before running the send_mail macro.
-Customize the certificate template by editing the Event Certificate Template.docx file in the Data/ folder.
-Modify the email body by editing the mailtemplate.html file.
-Troubleshooting
-Macros Disabled: Ensure macros are enabled in Excel as described above.
-Emails Not Sending: Verify that Outlook is open and properly configured.
-Contributions
-Contributions are welcome! Feel free to fork this repository, create new features, or fix bugs. Submit a pull request, and I’ll be happy to review it.
+## Troubleshooting
 
-License
-This project is licensed under the MIT License. See the LICENSE file for more information.
+- If macros are disabled, ensure you've enabled them in Excel's Trust Center
+- Check Outlook configuration if emails fail to send
+- Verify all paths in configuration files match your setup
 
-Contact
-For queries or assistance, feel free to reach out:
+## Contributing
 
-Email: your-email@example.com
-GitHub: Your GitHub Profile
-🎉 Automate. Generate. Simplify!
-vbnet
-Copy code
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### How to Use It  
-1. Copy the above markdown code into a `README.md` file in your project directory.  
-2. Replace `<repository-url>` and `[your-email@example.com]` with your actual details.  
-3. Customize further as needed!  
+## License
 
-Let me know if you'd like any tweaks or enhancements. 😊
+This project is licensed under the MIT License - see the LICENSE file for details.
