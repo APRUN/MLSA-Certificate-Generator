@@ -1,0 +1,13 @@
+# requirements. 
+# Use
+# pip3 install -r requirements.txt
+
+python-docx
+docx2pdf
+openpyxl
+uvicorn
+aiofiles
+fastapi
+aiosmtplib
+python-dotenv
+python-multipart
